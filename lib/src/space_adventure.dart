@@ -14,6 +14,7 @@ class SpaceAdventure {
   }
 
   printGreeting() {
+    final planetarySystem = PlanetarySystem("Solar System");
     print('Welcome to the Solar System!');
     print('There are 8 planets to explore.');
   }
