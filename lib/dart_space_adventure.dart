@@ -2,7 +2,7 @@ import 'dart:io';
 
 class SpaceAdventure {
 
-  void startSpaceAdventure() {
+  void start() {
     printGreeting();
     printIntroduction(responseToPrompt("What is your name?"));  
     print('Let\'s go on an adventure!\n');
