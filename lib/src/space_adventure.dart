@@ -3,7 +3,7 @@ import 'planetary_system.dart';
 
 class SpaceAdventure {
 
-  PlanetarySystem planetarySystem;
+  final PlanetarySystem planetarySystem;
 
   SpaceAdventure({this.planetarySystem});
 
@@ -21,7 +21,7 @@ class SpaceAdventure {
   printGreeting() {
   
     print('Welcome to the ${planetarySystem.name}!');
-    print('There are ${planetarySystem.getNumberOfPlanets} planets to explore.');
+    print('There are ${planetarySystem.numberOfPlanets} planets to explore.');
   }
 
   void printIntroduction(String name) {
