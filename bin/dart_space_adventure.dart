@@ -1,24 +1,35 @@
 //import 'package:dart_space_adventure/dart_space_adventure.dart' as dart_space_adventure;
 import 'dart:io';
 
-void main(List<String> arguments) {
+printGreeting() {
   print('Welcome to the Solar System!');
   print('There are 8 planets to explore.');
+}
 
-  print('What is your name?');
-  final name = stdin.readLineSync();
-  
+void printIntroduction(String name) {
   print('Nice to meet you, $name. My name is Eliza, I\'m an old friend of Alexa.');
+}
 
+String randomOrNot() {
   print(
     'Let\'s go on an adventure!\n'
     'Shall I randomly choose a planet for your to visit? (Y or N)'
   );
-  
+  return stdin.readLineSync();
+}
+
+String responseToPrompt(String prompt) {
+  print(prompt);
+  return stdin.readLineSync();
+}
+
+
+void travel() {
+
   String answer;
 
   while (answer != 'Y' && answer != 'N'){
-     answer = stdin.readLineSync();
+     answer = randomOrNot();
     if (answer == 'Y') {
       print(
         'Ok! Traveling to Mercury...\n'
@@ -36,6 +47,14 @@ void main(List<String> arguments) {
       print ('Sorry, I didn\'t get that');
     }
   }
+}
 
+void main(List<String> arguments) {
+
+  printGreeting();
+
+  printIntroduction(responseToPrompt("What is your name?"));  
+
+  travel();
   
 }
