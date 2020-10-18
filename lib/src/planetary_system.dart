@@ -8,4 +8,6 @@ class PlanetarySystem {
 
   int get numberOfPlanets => this.planets.length;
 
+  bool get hasPlanets => planets.isNotEmpty;
+
 }

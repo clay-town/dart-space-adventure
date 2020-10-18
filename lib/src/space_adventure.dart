@@ -35,6 +35,7 @@ class SpaceAdventure {
   }
 
   void travelToRandomPlanet() {
+    if (!planetarySystem.hasPlanets) return;
     final index = Random().nextInt(planetarySystem.numberOfPlanets);
     travelTo(planetarySystem.planets[index].name);   
   }
