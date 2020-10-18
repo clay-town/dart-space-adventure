@@ -10,39 +10,45 @@ void printIntroduction(String name) {
   print('Nice to meet you, $name. My name is Eliza, I\'m an old friend of Alexa.');
 }
 
-String randomOrNot() {
-  print(
-    'Let\'s go on an adventure!\n'
-    'Shall I randomly choose a planet for your to visit? (Y or N)'
-  );
-  return stdin.readLineSync();
-}
-
 String responseToPrompt(String prompt) {
   print(prompt);
   return stdin.readLineSync();
 }
 
+void travelToRandomPlanet() {
+  print(
+    'Ok! Traveling to Mercury...\n'
+    'Arrived at Mercury. A very hot planet, closest to the sun.'
+  );
+}
 
-void travel() {
+void travelTo(String planetName) {
+  print(
+    'Traveling to $planetName...\n'
+    'Arrived to $planetName. A very cold planet, furthest from the sun. '
+  );  
+}
 
+void travel(bool randomDestination) {
+  if (randomDestination) {
+    travelToRandomPlanet();
+  } else {
+    travelTo(responseToPrompt('Name the planet you would like to visit.'));
+  }
+
+}
+
+bool promptForRandomOrSpecificDestination(String prompt) {
   String answer;
 
   while (answer != 'Y' && answer != 'N'){
-     answer = randomOrNot();
+    answer = responseToPrompt(prompt);
     if (answer == 'Y') {
-      print(
-        'Ok! Traveling to Mercury...\n'
-        'Arrived at Mercury. A very hot planet, closest to the sun.'
-      );
-    } else if (answer == 'N') {
-      print('Name the planet you would like to visit.');
-      final planetName = stdin.readLineSync();
+      return true;
 
-      print(
-        'Traveling to $planetName...\n'
-        'Arrived to $planetName. A very cold planet, furthest from the sun. '
-      );  
+    } else if (answer == 'N') {
+      return false;
+      
     } else {
       print ('Sorry, I didn\'t get that');
     }
@@ -54,7 +60,10 @@ void main(List<String> arguments) {
   printGreeting();
 
   printIntroduction(responseToPrompt("What is your name?"));  
-
-  travel();
-  
+  print('Let\'s go on an adventure!\n');
+  travel(
+    promptForRandomOrSpecificDestination(
+      'Shall I randomly choose a planet for you to visit? (Y or N)'
+    )
+  );
 }
