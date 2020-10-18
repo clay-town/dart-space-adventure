@@ -1,15 +1,9 @@
 class PlanetarySystem {
   String name;
 
-  PlanetarySystem() {
-    this.name = "Unnamed System";
-  }
-
-  PlanetarySystem.withName(String name) {
-    this.name = name;
-  }
+  PlanetarySystem({this.name = "Unnamed System"});
 
 }
 
 var ps = PlanetarySystem();
-var dagobah = PlanetarySystem.withName("Dagobah System")
+var dagobah = PlanetarySystem(name: "Dagobah System");
