@@ -6,4 +6,3 @@ class Planet {
 
   Planet.nullPlanet() : name = 'Null', description = 'Null';
 }
-
