@@ -1,6 +1,19 @@
 //import 'package:dart_space_adventure/dart_space_adventure.dart' as dart_space_adventure;
 import 'dart:io';
 
+void main(List<String> arguments) {
+
+  printGreeting();
+
+  printIntroduction(responseToPrompt("What is your name?"));  
+  print('Let\'s go on an adventure!\n');
+  travel(
+    promptForRandomOrSpecificDestination(
+      'Shall I randomly choose a planet for you to visit? (Y or N)'
+    )
+  );
+}
+
 printGreeting() {
   print('Welcome to the Solar System!');
   print('There are 8 planets to explore.');
@@ -53,17 +66,4 @@ bool promptForRandomOrSpecificDestination(String prompt) {
       print ('Sorry, I didn\'t get that');
     }
   }
-}
-
-void main(List<String> arguments) {
-
-  printGreeting();
-
-  printIntroduction(responseToPrompt("What is your name?"));  
-  print('Let\'s go on an adventure!\n');
-  travel(
-    promptForRandomOrSpecificDestination(
-      'Shall I randomly choose a planet for you to visit? (Y or N)'
-    )
-  );
 }
